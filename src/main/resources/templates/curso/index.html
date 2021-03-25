@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistema Acadêmico</title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<main>
+		<section class="container">
+			<div class="row">
+				<div class="mx-auto">
+					<div class="d-flex justify-content-between">
+						<h3>Lista de cursos</h3>
+						<a href="/" class="btn btn-link">Voltar</a>
+					</div><hr>
+					<a href="/curso/create" class="btn btn-link">Novo Curso</a>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Sigla</th>
+								<th>Nome</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="curso : ${cursos}">
+								<td th:text="${curso.id}"></td>
+								<td th:text="${curso.sigla}"></td>
+								<td th:text="${curso.nome}"></td>
+								<td>
+									<a th:href="@{/curso/edit(id=${curso.sigla})}">Editar</a> |
+									<a th:href="@{/curso/delete(id=${curso.sigla})}">Remover</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistema Acadêmico</title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<main>
+		<section class="container">
+			<div class="row">
+				<div class="mx-auto">
+					<div class="d-flex justify-content-between">
+						<h3>Lista de logins</h3>
+						<a href="/" class="btn btn-link">Voltar</a>
+					</div><hr>
+					<a href="/login/create" class="btn btn-link">Novo Login</a>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Login</th>
+								<th>Nome</th>
+								<th>Password</th>
+								<th>Tipo</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="login : ${logins}">
+								<td th:text="${login.id}"></td>
+								<td th:text="${login.login}"></td>
+								<td th:text="${login.nome}"></td>
+								<td th:text="${login.password}"></td>
+								<td th:text="${login.tipo}"></td>
+								<td>
+									<a th:href="@{/login/edit(id=${login.login})}">Editar</a> |
+									<a th:href="@{/login/delete(id=${login.login})}">Remover</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+</html>

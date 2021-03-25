@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistema Acadêmico</title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<main>
+		<section class="container">
+			<div class="row">
+				<div class="mx-auto">
+					<h3>Criar Login</h3><hr>
+					<div class="row">
+						<div class="col-md-6">
+							<form method="POST" th:object="${login}" th:action="@{/login/create}">
+								<div class="form-group mb-2">
+									<label for="login" class="control-label">Login</label>
+									<input type="text" class="form-control" id="login" th:field="*{login}" placeholder="Login">
+								</div>
+								<div class="form-group mb-2">
+									<label for="nome" class="control-label">Nome</label>
+									<input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Nome">
+								</div>
+								<div class="form-group mb-2">
+									<label for="password" class="control-label">Senha</label>
+									<input type="text" class="form-control" id="password" th:field="*{password}" placeholder="Senha">
+								</div>
+								<div class="form-group mb-2">
+									<label for="tipo" class="control-label">Tipo</label>
+									<input type="text" class="form-control" id="tipo" th:field="*{tipo}" placeholder="Tipo">
+								</div>
+								<div class="form-group">
+									<input type="submit" value="Criar" class="btn btn-primary">
+									<a href="/logins" class="btn btn-link">Voltar</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+</html>
