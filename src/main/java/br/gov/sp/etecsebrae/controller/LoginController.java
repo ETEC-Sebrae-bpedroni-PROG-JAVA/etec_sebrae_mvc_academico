@@ -19,7 +19,8 @@ import br.gov.sp.etecsebrae.model.Login;
 @Controller
 public class LoginController {
 
-	final String urlLogin = "http://localhost:8001/login";
+	//final String urlLogin = "http://localhost:8001/login";
+	final String urlLogin = "https://api-login-bpedroni.herokuapp.com/login";
 	RestTemplate restTemplate = new RestTemplate();
 
 	@GetMapping({ "/logins" })

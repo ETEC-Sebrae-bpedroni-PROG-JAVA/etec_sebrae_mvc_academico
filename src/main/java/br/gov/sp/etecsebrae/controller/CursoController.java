@@ -19,7 +19,8 @@ import br.gov.sp.etecsebrae.model.Curso;
 @Controller
 public class CursoController {
 
-	final String urlCurso = "http://localhost:8002/curso";
+	//final String urlCurso = "http://localhost:8002/curso";
+	final String urlCurso = "https://api-curso-bpedroni.herokuapp.com/curso";
 	RestTemplate restTemplate = new RestTemplate();
 
 	@GetMapping({ "/cursos" })
